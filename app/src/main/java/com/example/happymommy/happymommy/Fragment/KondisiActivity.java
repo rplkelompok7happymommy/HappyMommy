@@ -46,7 +46,7 @@ public class KondisiActivity extends AppCompatActivity {
 
                 Picasso.with(getBaseContext()).load(detail.getImgPerkembangan()).into(imageView);
 
-                String perkembangan = dataSnapshot.child("Perkembangan").getValue().toString();
+                String perkembangan = dataSnapshot.child("perkembangan").getValue().toString();
                 aJudul.setText("Perkembangan");
                 aIsi.setText(perkembangan);
 

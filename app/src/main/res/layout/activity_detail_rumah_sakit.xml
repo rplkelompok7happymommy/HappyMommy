@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address : "
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="@color/coloritam"
             />
 
@@ -41,7 +41,7 @@
             android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="@color/coloritam"
             />
 
@@ -57,14 +57,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hours     : "
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="@color/coloritam"/>
 
         <TextView
             android:id="@+id/hours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="@color/coloritam"
             />
 
@@ -80,14 +80,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone    : "
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="@color/coloritam"/>
 
         <TextView
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textColor="@color/coloritam"
             />
 

@@ -5,14 +5,14 @@ package com.example.happymommy.happymommy.Model;
  */
 
 public class Bulan {
-    String Gejala;
-    String Makanan;
-    String Perkembangan;
-    String Tips;
-    String ImgGejala;
-    String ImgMakanan;
-    String ImgPerkembangan;
-    String ImgTips;
+    private String Gejala;
+    private String Makanan;
+    private String Perkembangan;
+    private String Tips;
+    private String ImgGejala;
+    private String ImgMakanan;
+    private String ImgPerkembangan;
+    private String ImgTips;
 
     public Bulan() {
 

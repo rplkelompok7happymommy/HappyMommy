@@ -5,11 +5,11 @@ package com.example.happymommy.happymommy.Model;
  */
 
 public class CommentModel {
-    String Idcomment;
-    String Username;
-    String Isi;
-    String IdRumahSakit;
-    long timestamp;
+    private String Idcomment;
+    private String Username;
+    private String Isi;
+    private String IdRumahSakit;
+    private long timestamp;
 
     public CommentModel() {
 

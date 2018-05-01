@@ -45,7 +45,7 @@ public class GejalaActivity extends AppCompatActivity {
 
                 Picasso.with(getBaseContext()).load(detail.getImgGejala()).into(imageView);
 
-                String gejala = dataSnapshot.child("Gejala").getValue().toString();
+                String gejala = dataSnapshot.child("gejala").getValue().toString();
                 aJudul.setText("Gejala");
                 aIsi.setText(gejala);
 

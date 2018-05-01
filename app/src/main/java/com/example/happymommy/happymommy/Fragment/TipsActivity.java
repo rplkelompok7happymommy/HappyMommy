@@ -24,7 +24,7 @@ public class TipsActivity extends AppCompatActivity {
 
     ImageView imageView;
 
-    private DatabaseReference mUserDatabase;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +39,16 @@ public class TipsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getStringExtra("IdBulan");
 
-        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("InfoKesehatan").child(id);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("InfoKesehatan").child(id);
 
-        mUserDatabase.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 Bulan detail = dataSnapshot.getValue(Bulan.class);
 
                 Picasso.with(getBaseContext()).load(detail.getImgTips()).into(imageView);
-
-
-                String tips = dataSnapshot.child("Tips").getValue().toString();
+                String tips = dataSnapshot.child("tips").getValue().toString();
                 aJudul.setText("TIPS");
                 aIsi.setText(tips);
 

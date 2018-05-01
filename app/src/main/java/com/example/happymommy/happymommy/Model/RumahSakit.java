@@ -5,12 +5,12 @@ package com.example.happymommy.happymommy.Model;
  */
 
 public class RumahSakit {
-    String Address;
-    String Deskripsi;
-    String Hours;
-    String ImgLokasi;
-    String ImgMaps;
-    String Phone;
+    private String Address;
+    private String Deskripsi;
+    private String Hours;
+    private String ImgLokasi;
+    private String ImgMaps;
+    private String Phone;
 
     public RumahSakit (){
 

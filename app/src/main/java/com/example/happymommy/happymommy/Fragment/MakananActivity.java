@@ -46,7 +46,7 @@ public class MakananActivity extends AppCompatActivity {
 
                 Picasso.with(getBaseContext()).load(detail.getImgMakanan()).into(imageView);
 
-                String makanan = dataSnapshot.child("Makanan").getValue().toString();
+                String makanan = dataSnapshot.child("makanan").getValue().toString();
                 aJudul.setText("Makanan");
                 aIsi.setText(makanan);
 
