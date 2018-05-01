@@ -4,102 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.happymommy.happymommy.MainMenu">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.happymommy.happymommy.Home"
+    tools:showIn="@layout/app_bar_home"
+    android:background="@drawable/bground"
+    >
 
-
-    <Button
+    <ImageButton
         android:id="@+id/infoKesehatan"
-        android:layout_width="141dp"
-        android:layout_height="158dp"
+        android:layout_width="165dp"
+        android:layout_height="177dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="#FFFF99CC"
+        android:background="@drawable/info_logo"
+        android:onClick="InfoKesehatan"
         android:text="Info Kesehatan"
         android:textColor="#FFFFFFFF"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.115" />
 
-    <Button
+
+    <ImageButton
         android:id="@+id/hitungKontraksi"
-        android:layout_width="141dp"
-        android:layout_height="158dp"
+        android:layout_width="165dp"
+        android:layout_height="177dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/timer_logo"
+        android:onClick="hitungKontraksi"
         android:text="Hitung Kontraksi"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115"
-        android:background="#FFFF99CC"
-        android:textColor="#FFFFFFFF"
-        android:textSize="20dp"/>
-
-    <Button
-        android:id="@+id/rumahSakit"
-        android:layout_width="141dp"
-        android:layout_height="158dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Rumah Sakit (Bandung)"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768"
-        android:background="#FFFF99CC"
-        android:textColor="#FFFFFFFF"
-        android:textSize="20dp"/>
-
-    <Button
-        android:id="@+id/senam"
-        android:layout_width="145dp"
-        android:layout_height="157dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Senam Ibu Hamil"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766"
-        android:background="#FFFF99CC"
-        android:textColor="#FFFFFFFF"
-        android:textSize="20dp"/>
-
-    <Button
-        android:id="@+id/Logout"
-        android:layout_width="155dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#FFFF99CC"
-        android:text="Logout"
         android:textColor="#FFFFFFFF"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.959"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982" />
+        app:layout_constraintVertical_bias="0.115" />
+
+    <ImageButton
+        android:id="@+id/senam"
+        android:layout_width="165dp"
+        android:layout_height="177dp"
+        android:background="@drawable/logo_senam"
+        android:onClick="senam"
+        android:text="Senam Ibu Hamil"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
+
+
+    <ImageButton
+        android:id="@+id/rumahsakit"
+        android:layout_width="165dp"
+        android:layout_height="177dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rs_info"
+        android:onClick="rumahsakit"
+        android:text="Rumah Sakit Bandung"
+        android:textColor="#FFFFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.959"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.766" />
+
+
 
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,124 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.happymommy.happymommy.Fragment.InfoKontraksiFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:text="Kontraksi Asli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/colorbiru"
+                android:textSize="25dp"/>
+
+            <TextView
+                android:text="+ Mulai terasa saat kandungan sudah cukup bulan, yaitu sekitar 37-40 minggu."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Munculnya secara teratur dan dengan interval. Mula-mula sekitar 30-60 detik, lalu semakin lama durasinya semakin panjang. Pada fase persalinan bisa sekitar 75 detik."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Perut mulas disertai nyeri di bagian pinggang sampai ke perut bagian bawah."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Seiring waktu kontraksi semakin sering terjadi. Awalnya setiap 10 menit sekali, kemudian semakin kuat, disertai sensasi ada sesuatu yang akan keluar melalui vagina."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Kontraksi tidak hilang meski Mam telah berjalan-jalan atau mengubah posisi."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Timbul lendir agak kental bercampur darah dari vagina."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="Kontraksi Palsu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/colorbiru"
+                android:textSize="25dp"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:text="+ Mulai terasa di trimester kedua, yakni saat kandungan berusia di atas 20 minggu. Namun, bisa juga muncul saat menjelang persalinan (kandungan berusia 37-40 minggu)."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Munculnya tidak teratur, berlangsung kurang lebih 20 detik (kadang bisa mencapai 2 menit atau lebih)."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Perut seperti mulas tetapi tanpa rasa nyeri, dimulai dari bagian atas rahim lalu turun ke bawah."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Biasanya terjadi 1-2 kali sehari, dan tidak bertambah sering."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Bila berjalan-jalan atau mengubah posisi, maka kontraksi akan berhenti."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+            <TextView
+                android:text="+ Terkadang timbul bercak kecokelatan. Namun, biasanya hal ini merupakan salah satu akibat dari pemeriksaan dalam yang dilakukan oleh dokter kandungan atau hubungan intim dalam waktu 48 jam terakhir."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/coloritam"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

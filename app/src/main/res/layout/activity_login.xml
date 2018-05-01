@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pinkbground"
     tools:context="com.example.happymommy.happymommy.Login">
 
     <ImageView
@@ -58,9 +59,21 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
+    <TextView
+        android:id="@+id/tvForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tvSignup"
+        android:layout_alignRight="@+id/tvSignup"
+        android:textColor="@color/colorbiru"
+        android:layout_below="@+id/Password"
+        android:text="Lupa Password ?" />
+
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Password"
         android:layout_centerHorizontal="true"
@@ -69,13 +82,21 @@
         android:textColor="#FFFFFFFF"
         android:background="#FFFF99CC"/>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
     <TextView
-        android:id="@+id/Signup"
+        android:id="@+id/tvSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
-        android:text="Tidak memiliki Akun? Sign Up Di sini!!!" />
+        android:text="Tidak memiliki Akun? Sign Up di sini" />
 
 </RelativeLayout>

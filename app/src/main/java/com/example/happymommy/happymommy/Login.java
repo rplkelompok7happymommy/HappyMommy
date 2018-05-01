@@ -5,91 +5,116 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.happymommy.happymommy.Common.Common;
+import com.example.happymommy.happymommy.Model.InfoUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText mUser, mPass;
-    private TextView mSignup;
-    private Button btnMasuk;
+    EditText mUser, mPass;
+    Button btnLogin;
+    TextView tvSignup, tvForgot;
 
-    private ProgressDialog progressDialog;
+    private FirebaseAuth auth;
 
-    private FirebaseAuth firebaseAuth;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        progressDialog = new ProgressDialog(this);
-
-        if (firebaseAuth.getCurrentUser() != null){
-            finish();
-            startActivity(new Intent(getApplicationContext(), MainMenu.class));
-        }
-
         mUser = (EditText) findViewById(R.id.Username);
         mPass = (EditText) findViewById(R.id.Password);
-        mSignup = (TextView) findViewById(R.id.Signup);
-        btnMasuk = (Button) findViewById(R.id.btnLogin);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        tvSignup = (TextView) findViewById(R.id.tvSignup);
+        tvForgot = (TextView) findViewById(R.id.tvForgot);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        btnMasuk.setOnClickListener(this);
-        mSignup.setOnClickListener(this);
-    }
+        btnLogin.setOnClickListener(this);
+        tvSignup.setOnClickListener(this);
+        tvForgot.setOnClickListener(this);
 
-    private void userLogin (){
-        String email = mUser.getText().toString().trim();
-        String password = mPass.getText().toString().trim();
+        auth = FirebaseAuth.getInstance();
 
-        if (TextUtils.isEmpty(email)){
-            //jika email tidak di isi
-            Toast.makeText(this, "Mohon Isi Email", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(password)){
-            //jika password tidak di isi
-            Toast.makeText(this, "Mohon Isi Password", Toast.LENGTH_SHORT).show();
-            return;
+        if (auth.getCurrentUser()!=null){
+            startActivity(new Intent(Login.this, Home.class));
         }
 
-        progressDialog.setMessage("Mohon Tunggu ......");
-        progressDialog.show();
 
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    finish();
-                    startActivity(new Intent(getApplicationContext(), MainMenu.class));
-                }else{
-                    Toast.makeText(Login.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
-                }
-                progressDialog.dismiss();
-            }
-        });
     }
 
     @Override
     public void onClick(View view) {
-        if (view == btnMasuk){
-            userLogin();
+        if (view.getId() == R.id.btnLogin){
+            loginUser();
         }
-        if (view == mSignup){
-            finish();
-            startActivity(new Intent(this, Registrasi.class));
+        if (view.getId() == R.id.tvSignup){
+            startActivity(new Intent(Login.this, Registrasi.class));
         }
+        if (view.getId() == R.id.tvForgot){
+            startActivity(new Intent(Login.this, LupaPassword.class));
+        }
+    }
+
+    private void loginUser() {
+        String email = mUser.getText().toString().trim();
+        String password = mPass.getText().toString().trim();
+
+        if (email.isEmpty()) {
+            mUser.setError("Mohon Isi Email");
+            mUser.requestFocus();
+            return;
+        }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            mUser.setError("Struktur Email Salah");
+            mUser.requestFocus();
+            return;
+        }
+
+        if(password.isEmpty()) {
+            mPass.setError("Mohon Isi Password");
+            mPass.requestFocus();
+            return;
+        }
+
+        if(password.length()<6){
+           mPass.setError("Password harus lebih dari 6 karakter");
+           mPass.requestFocus();
+            return;
+        }
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                progressBar.setVisibility(View.GONE);
+                if (!task.isSuccessful()){
+
+                    Toast.makeText(Login.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
+
+                }
+                else {
+
+                    startActivity(new Intent(Login.this, Home.class));
+                }
+            }
+        });
     }
 }

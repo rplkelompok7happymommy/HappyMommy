@@ -1,0 +1,81 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.happymommy.happymommy.Fragment.HitungKontraksiFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/waktu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:text="00:00:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textColor="#009688"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:text="S t a r t"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:id="@+id/button"
+            android:background="@drawable/button_radius"
+
+
+            android:textSize="20dp"/>
+
+        <Button
+            android:text="P a u s e"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:id="@+id/button2"
+            android:layout_alignBaseline="@+id/button"
+            android:layout_alignBottom="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_radius"
+
+
+            android:textSize="20dp"/>
+
+        <Button
+            android:text="R e s e t"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:id="@+id/button3"
+            android:layout_below="@+id/button"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_radius"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+
+
+            android:textSize="20dp"/>
+
+    <ListView
+        android:id="@+id/listview1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

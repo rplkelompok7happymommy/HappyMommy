@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    tools:context="com.example.happymommy.happymommy.AboutUs">
+
+    <TextView
+        android:text="APLIKASI HAPPY MOMMY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_above="@+id/Username"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
+        android:src="@drawable/happymom"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:text="Merupakan Aplikasi yang dapat membantu ibu hamil untuk mendapatkan informasi kesehatan dengan mudah perbulannya, Hitung Kontraksi , Informasi Rumah Sakit (area Bandung) dan Tutorial Senam Ibu Hamil "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:text="Aplikasi ini di buat untuk memenuhi Tugas Mata Kuliah Rekayasa Perangkat Lunak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>
