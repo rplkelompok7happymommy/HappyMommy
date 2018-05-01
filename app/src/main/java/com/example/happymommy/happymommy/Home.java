@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.happymommy.happymommy.Common.Common;
+import com.example.happymommy.happymommy.Model.InfoUser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,8 @@ public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseAuth auth;
+    DatabaseReference databaseReference;
+    FirebaseUser mCurrentUser;
 
     TextView fullnama, infoemail;
 
@@ -49,10 +52,31 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         auth = FirebaseAuth.getInstance();
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        String current_uid = mCurrentUser.getUid();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(current_uid);
 
         View headerView = navigationView.getHeaderView(0);
         fullnama = headerView.findViewById(R.id.fullnama);
         infoemail = headerView.findViewById(R.id.infoemail);
+        infoemail.setText(auth.getCurrentUser().getEmail());
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                String nama = dataSnapshot.child("nama").getValue().toString();
+                fullnama.setText(nama);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     }
 

@@ -35,6 +35,8 @@ public class Akun extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         aNama = findViewById(R.id.aNama);
         aAlamat = findViewById(R.id.aAlamat);
         aNohp = findViewById(R.id.aNohp);

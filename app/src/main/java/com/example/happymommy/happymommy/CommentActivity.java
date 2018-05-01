@@ -62,8 +62,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     SimpleDateFormat simpleDateFormat;
 
-    SwipeRefreshLayout swipeRefreshLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +76,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         recyclerView = (RecyclerView) findViewById(R.id.rv_comment);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-        swipeRefreshLayout = findViewById(R.id.swipe_layout);
 
         mAuth = FirebaseAuth.getInstance();
 

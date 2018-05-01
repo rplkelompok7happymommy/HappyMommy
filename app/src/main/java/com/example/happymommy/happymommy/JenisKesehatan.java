@@ -20,7 +20,6 @@ public class JenisKesehatan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jenis_kesehatan);
 
-
         btnTips = findViewById(R.id.btnTips);
         btnMakanan = findViewById(R.id.btnMakanan);
         btnKondisi = findViewById(R.id.btnKondisi);

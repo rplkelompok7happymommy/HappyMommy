@@ -34,6 +34,9 @@ public class InfoRumahSakit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_rumah_sakit);
 
+        getSupportActionBar().setTitle("Informasi Rumah Sakit");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("InfoRumahsakit");
 

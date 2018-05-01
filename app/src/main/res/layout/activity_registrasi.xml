@@ -4,77 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pinkbground"
     tools:context="com.example.happymommy.happymommy.Registrasi">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/happymom"
-        android:paddingTop="30sp"
         android:id="@+id/imageView4" />
 
-
-    <EditText
-        android:id="@+id/Remail"
-        android:layout_width="300dp"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Lnama"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/btnRegis"
         android:layout_alignStart="@+id/btnRegis"
         android:layout_below="@+id/imageView4"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName" />
+        android:layout_marginTop="10dp">
 
-    <EditText
-        android:id="@+id/Rpassword"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Remail"
-        android:layout_alignStart="@+id/Remail"
-        android:layout_below="@+id/Remail"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/Rnama"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
 
-    <EditText
-        android:id="@+id/Ralamat"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Alamat"
-        android:layout_alignLeft="@+id/Rpassword"
-        android:layout_alignStart="@+id/Rpassword"
-        android:layout_below="@+id/Rpassword"
-        android:layout_marginTop="20dp"/>
+            android:ems="10"
+            android:hint="Nama"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/Rnohp"
-        android:layout_width="300dp"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Lemail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="No hp"
-        android:layout_alignLeft="@+id/Ralamat"
-        android:layout_alignStart="@+id/Ralamat"
-        android:layout_below="@+id/Ralamat"
-        android:layout_marginTop="20dp"/>
+        android:layout_alignLeft="@+id/Lnama"
+        android:layout_alignStart="@+id/Lnama"
+        android:layout_below="@+id/Lnama">
+
+        <EditText
+            android:id="@+id/Remail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Lalamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Lemail"
+        android:layout_alignStart="@+id/Lemail"
+        android:layout_below="@+id/Lemail"
+        android:layout_marginTop="5dp">
+
+        <EditText
+            android:id="@+id/Ralamat"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+
+            android:ems="10"
+            android:hint="Alamat"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Lnohp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Lalamat"
+        android:layout_alignStart="@+id/Lalamat"
+        android:layout_below="@+id/Lalamat"
+        android:layout_marginTop="5dp">
+
+        <EditText
+            android:id="@+id/Rnohp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="No Hp"
+           />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/Lpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Lnohp"
+        android:layout_alignStart="@+id/Lnohp"
+        android:layout_below="@+id/Lnohp"
+        android:layout_marginTop="5dp"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/Rpassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Password"
+            />
+    </android.support.design.widget.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnRegis"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/Lpassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp"
+        android:layout_marginTop="13dp"
         android:background="#FFFF99CC"
         android:text="Registrasi"
         android:textColor="#FFFFFFFF" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>

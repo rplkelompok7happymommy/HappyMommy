@@ -15,6 +15,9 @@ public class OpsiKesehatan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opsi_kesehatan);
 
+        getSupportActionBar().setTitle("Informasi Kesehatan");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);

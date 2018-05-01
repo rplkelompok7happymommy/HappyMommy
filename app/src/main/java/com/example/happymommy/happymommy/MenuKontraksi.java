@@ -12,6 +12,8 @@ public class MenuKontraksi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_kontraksi);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         TabLayout tab = findViewById(R.id.tab);
         final ViewPager viewPager = findViewById(R.id.pager);
 

@@ -25,6 +25,8 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         PassBaru = (EditText) findViewById(R.id.PassBaru);
         btnChangePassword = (Button)findViewById(R.id.btnChangePassword);
 

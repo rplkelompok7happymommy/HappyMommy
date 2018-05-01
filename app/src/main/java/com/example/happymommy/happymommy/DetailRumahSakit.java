@@ -80,7 +80,6 @@ public class DetailRumahSakit extends AppCompatActivity {
                 Picasso.with(getBaseContext()).load(detail.getImgLokasi()).into(imageView);
 
                 mJudul.setText(detail.getDeskripsi());
-                mJudul.setText(detail.getDeskripsi());
                 mAddress.setText(detail.getAddress());
                 mHours.setText(detail.getHours());
                 mPhone.setText(detail.getPhone());
