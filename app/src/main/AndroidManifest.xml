@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.happymommy.happymommy">
+    package="com.rpl.happymommy.happymommy">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashScreen"
+            android:name="com.rpl.happymommy.happymommy.SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,50 +28,50 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.rpl.happymommy.happymommy.Login"
             android:label="HAPPY MOMMY" />
         <activity
-            android:name=".Registrasi"
+            android:name="com.rpl.happymommy.happymommy.Registrasi"
             android:label="Registrasi" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.rpl.happymommy.happymommy.MainActivity" />
         <activity
-            android:name=".Home"
+            android:name="com.rpl.happymommy.happymommy.Home"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Akun"
+            android:name="com.rpl.happymommy.happymommy.Akun"
             android:label="@string/title_activity_akun"
-            android:parentActivityName=".Home"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LupaPassword"
-            android:parentActivityName=".Login" />
+            android:name="com.rpl.happymommy.happymommy.LupaPassword"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Login" />
         <activity
-            android:name=".ChangePassword"
-            android:parentActivityName=".Home" />
+            android:name="com.rpl.happymommy.happymommy.ChangePassword"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Home" />
         <activity
-            android:name=".OpsiKesehatan"
-            android:parentActivityName=".Home" />
-        <activity android:name=".JenisKesehatan" />
-        <activity android:name=".Fragment.TipsActivity" />
-        <activity android:name=".Fragment.MakananActivity" />
-        <activity android:name=".Fragment.KondisiActivity" />
-        <activity android:name=".Fragment.GejalaActivity" />
+            android:name="com.rpl.happymommy.happymommy.OpsiKesehatan"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Home" />
+        <activity android:name="com.rpl.happymommy.happymommy.JenisKesehatan" />
+        <activity android:name="com.rpl.happymommy.happymommy.Fragment.TipsActivity" />
+        <activity android:name="com.rpl.happymommy.happymommy.Fragment.MakananActivity" />
+        <activity android:name="com.rpl.happymommy.happymommy.Fragment.KondisiActivity" />
+        <activity android:name="com.rpl.happymommy.happymommy.Fragment.GejalaActivity" />
         <activity
-            android:name=".Senam"
+            android:name="com.rpl.happymommy.happymommy.Senam"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_video_streaming"
             android:theme="@style/FullscreenTheme"/>
         <activity
-            android:name=".EditProfile"
-            android:parentActivityName=".Akun" />
+            android:name="com.rpl.happymommy.happymommy.EditProfile"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Akun" />
         <activity
-            android:name=".InfoRumahSakit"
-            android:parentActivityName=".Home" />
-        <activity android:name=".DetailRumahSakit" />
-        <activity android:name=".CommentActivity" />
+            android:name="com.rpl.happymommy.happymommy.InfoRumahSakit"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Home" />
+        <activity android:name="com.rpl.happymommy.happymommy.DetailRumahSakit" />
+        <activity android:name="com.rpl.happymommy.happymommy.CommentActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -85,18 +85,18 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name="com.rpl.happymommy.happymommy.MapsActivity"
             android:label="@string/title_activity_maps" />
 
         <uses-library android:name="com.google.android.maps" />
 
         <activity
-            android:name=".MenuKontraksi"
-            android:parentActivityName=".Home" />
+            android:name="com.rpl.happymommy.happymommy.MenuKontraksi"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Home" />
         <activity
-            android:name=".AboutUs"
-            android:parentActivityName=".Home" />
-        <activity android:name=".HalamanAdmin"></activity>
+            android:name="com.rpl.happymommy.happymommy.AboutUs"
+            android:parentActivityName="com.rpl.happymommy.happymommy.Home" />
+        <activity android:name="com.rpl.happymommy.happymommy.HalamanAdmin"></activity>
     </application>
 
 </manifest>

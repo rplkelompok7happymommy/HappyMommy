@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/pinkbground"
     android:theme="@style/AppTheme.NoActionBar"
-    tools:context="com.example.happymommy.happymommy.SplashScreen">
+    tools:context="com.rpl.happymommy.happymommy.SplashScreen">
 
     <LinearLayout
         android:layout_width="match_parent"

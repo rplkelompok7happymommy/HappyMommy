@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "838146376494",
-    "firebase_url": "https://happymommy-rpl.firebaseio.com",
-    "project_id": "happymommy-rpl",
-    "storage_bucket": "happymommy-rpl.appspot.com"
+    "project_number": "763304230327",
+    "firebase_url": "https://happymommyrplkelompok7.firebaseio.com",
+    "project_id": "happymommyrplkelompok7",
+    "storage_bucket": "happymommyrplkelompok7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:838146376494:android:d8992739f3746b4c",
+        "mobilesdk_app_id": "1:763304230327:android:4e43f3ea14b899dc",
         "android_client_info": {
-          "package_name": "com.example.happymommy.happymommy"
+          "package_name": "com.rpl.happymommy.happymommy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "838146376494-83o42ld38aiirauds69cbq11d8rl6g4f.apps.googleusercontent.com",
+          "client_id": "763304230327-cbbk7tsqbbt0t8hc2bocf5b3mihfj61i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rpl.happymommy.happymommy",
+            "certificate_hash": "b5cae2211c53fa40ecfce110494945890d6b002d"
+          }
+        },
+        {
+          "client_id": "763304230327-b3e3tn6n1n48cn392a4n9ohf3157jtba.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDh0PX5c0TbJPvMnCfeVqxw_RMpYhhqQRs"
+          "current_key": "AIzaSyAPnf8_3SSjdbloOd1gOowaNYlto_G078I"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763304230327-b3e3tn6n1n48cn392a4n9ohf3157jtba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

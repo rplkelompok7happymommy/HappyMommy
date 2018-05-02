@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.happymommy.happymommy.Fragment.HitungKontraksiFragment">
+    tools:context="com.rpl.happymommy.happymommy.Fragment.HitungKontraksiFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

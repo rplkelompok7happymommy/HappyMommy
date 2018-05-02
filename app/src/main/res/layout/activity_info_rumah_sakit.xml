@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.happymommy.happymommy.InfoRumahSakit">
+    tools:context="com.rpl.happymommy.happymommy.InfoRumahSakit">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_hospital"

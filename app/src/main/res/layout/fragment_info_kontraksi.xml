@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.happymommy.happymommy.Fragment.InfoKontraksiFragment">
+    tools:context="com.rpl.happymommy.happymommy.Fragment.InfoKontraksiFragment">
 
     <ScrollView
         android:layout_width="match_parent"

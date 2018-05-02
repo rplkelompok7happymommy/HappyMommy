@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bground"
-    tools:context="com.example.happymommy.happymommy.Fragment.MakananActivity">
+    tools:context="com.rpl.happymommy.happymommy.Fragment.MakananActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
