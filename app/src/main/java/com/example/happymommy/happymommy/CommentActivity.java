@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.happymommy.happymommy.Adapter.AdapterComment;
 import com.example.happymommy.happymommy.Adapter.AdapterRumahsakit;
 import com.example.happymommy.happymommy.Adapter.AdapterShowComment;
+import com.example.happymommy.happymommy.Interface.ItemClickListener;
 import com.example.happymommy.happymommy.Model.CommentModel;
 import com.example.happymommy.happymommy.Model.InfoUser;
 import com.example.happymommy.happymommy.Model.RumahSakit;
@@ -103,12 +104,40 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             adapter = new FirebaseRecyclerAdapter<CommentModel, AdapterShowComment>(CommentModel.class, R.layout.custom_comment, AdapterShowComment.class, query) {
 
                 @Override
-                protected void populateViewHolder(AdapterShowComment viewHolder, CommentModel model, int position) {
+                protected void populateViewHolder(final AdapterShowComment viewHolder, CommentModel model, int position) {
                     viewHolder.mUser.setText(model.getUsername());
                     viewHolder.mIsi.setText(model.getIsi());
                     viewHolder.mWaktu.setText(CurrentDate);
 
+                    final String list_id = getRef(position).getKey();
+                    final String id_comment = model.getIdcomment();
 
+                    databaseComments.child(list_id).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                            viewHolder.setItemClickListener(new ItemClickListener() {
+                                @Override
+                                public void onClick(View view, int position, boolean isLongClick) {
+
+                                    if (mAuth.getCurrentUser().getUid().equals(id_comment)){
+                                        databaseComments.child(list_id).removeValue();
+                                        notifyItemRemoved(viewHolder.getAdapterPosition());
+                                        notifyDataSetChanged();
+                                    }else {
+
+                                    }
+
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
                 }
             };
 
@@ -140,14 +169,43 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             adapter = new FirebaseRecyclerAdapter<CommentModel, AdapterShowComment>(CommentModel.class, R.layout.custom_comment, AdapterShowComment.class, query) {
 
                 @Override
-                protected void populateViewHolder(AdapterShowComment viewHolder, CommentModel model, int position) {
+                protected void populateViewHolder(final AdapterShowComment viewHolder, CommentModel model, int position) {
                     viewHolder.mUser.setText(model.getUsername());
                     viewHolder.mIsi.setText(model.getIsi());
                     viewHolder.mWaktu.setText(CurrentDate);
 
-                }
+                    final String list_id = getRef(position).getKey();
+                    final String id_comment = model.getIdcomment();
 
+                    databaseComments.child(list_id).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                            viewHolder.setItemClickListener(new ItemClickListener() {
+                                @Override
+                                public void onClick(View view, int position, boolean isLongClick) {
+
+                                    if (mAuth.getCurrentUser().getUid().equals(id_comment)){
+                                        databaseComments.child(list_id).removeValue();
+                                        notifyItemRemoved(viewHolder.getAdapterPosition());
+                                        notifyDataSetChanged();
+                                    }else {
+
+                                    }
+
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }
             };
+
             recyclerView.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         }
