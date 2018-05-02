@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,13 +19,19 @@ public class LupaPassword extends AppCompatActivity implements View.OnClickListe
     private Button btnLupa;
     private  FirebaseAuth auth;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lupa_password);
 
+        getSupportActionBar().setTitle("Lupa Password");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         LupaPass = (EditText)findViewById(R.id.LupaPass);
         btnLupa = (Button) findViewById(R.id.btnlupa);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnLupa.setOnClickListener(this);
 
@@ -35,6 +42,7 @@ public class LupaPassword extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btnlupa){
+            progressBar.setVisibility(View.VISIBLE);
             ResetPassword(LupaPass.getText().toString());
         }
 }
@@ -44,8 +52,10 @@ public class LupaPassword extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(LupaPassword.this, "Reset Password Telah dikirim ke Email"+ email, Toast.LENGTH_SHORT).show();
                 }else {
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(LupaPassword.this, "Gagal Kirim Reset Password", Toast.LENGTH_SHORT).show();
                 }
             }

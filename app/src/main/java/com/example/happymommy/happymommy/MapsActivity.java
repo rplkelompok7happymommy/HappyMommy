@@ -47,90 +47,100 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9060568,107.6114247);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Limijati Women And Children Hospital"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9060568,107.6114247);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Limijati Women And Children Hospital"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("Rumah Bersalin Mutiara Cikutra")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.900348,107.641055);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Rumah Bersalin Mutiara Cikutra"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.900348,107.641055);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Rumah Bersalin Mutiara Cikutra"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("Rumah Bersalin Cuma Cuma")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9060568,107.6114247);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Rumah Bersalin Cuma Cuma"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9060568,107.6114247);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Rumah Bersalin Cuma Cuma"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("Emma Poeradiredja Birth Hospital")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9132686,107.6114561);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Emma Poeradiredja Birth Hospital"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9132686,107.6114561);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Emma Poeradiredja Birth Hospital"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("RSIA Grha Bunda")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9132433,107.6432544);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("RSIA Grha Bunda"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9132433,107.6432544);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("RSIA Grha Bunda"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("Klinik Utama Kebidanan Harkel")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9453679,107.6146108);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Klinik Utama Kebidanan Harkel"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9453679,107.6146108);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Klinik Utama Kebidanan Harkel"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("Hermina Pasteur Hospital")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.8957417,107.5865955);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Hermina Pasteur Hospital"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.8957417,107.5865955);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Hermina Pasteur Hospital"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("Melinda Hospital 1")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9070202,107.6011145);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Melinda Hospital 1"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9070202,107.6011145);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Melinda Hospital 1"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("RSIA Harapan Bunda")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9559413,107.6599324);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("RSIA Harapan Bunda"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9559413,107.6599324);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("RSIA Harapan Bunda"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
         if (id.equals("Special Hospital Maternal and Child Bandung")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
-            LatLng sydney = new LatLng(-6.9292213,107.598437);
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Special Hospital Maternal and Child Bandung"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng bandung = new LatLng(-6.9292213,107.598437);
+            mMap.addMarker(new MarkerOptions().position(bandung).title("Special Hospital Maternal and Child Bandung"));
+            float zoomLevel = 16.0f; //This goes up to 21
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }
 
     }

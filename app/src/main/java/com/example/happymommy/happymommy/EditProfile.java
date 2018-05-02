@@ -33,6 +33,9 @@ public class EditProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
+        getSupportActionBar().setTitle("Edit Profile");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         aNama = findViewById(R.id.aNama);
         aAlamat = findViewById(R.id.aAlamat);
         aNohp = findViewById(R.id.aNohp);

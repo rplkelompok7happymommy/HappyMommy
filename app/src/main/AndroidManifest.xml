@@ -44,7 +44,8 @@
             android:label="@string/title_activity_akun"
             android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LupaPassword" />
+        <activity android:name=".LupaPassword"
+            android:parentActivityName=".Login"/>
         <activity
             android:name=".ChangePassword"
             android:parentActivityName=".Home" />
@@ -60,7 +61,8 @@
             android:name=".Senam"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EditProfile" />
+        <activity android:name=".EditProfile"
+            android:parentActivityName=".Akun"/>
         <activity
             android:name=".InfoRumahSakit"
             android:parentActivityName=".Home" />
