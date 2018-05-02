@@ -21,12 +21,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class EditProfile extends AppCompatActivity {
 
-    EditText aNama, aAlamat, aNohp;
+    private EditText aNama, aAlamat, aNohp;
 
     private DatabaseReference mUserDatabase;
     private FirebaseUser mCurrentUser;
 
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,9 +1,11 @@
 package com.example.happymommy.happymommy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -28,11 +30,11 @@ import com.google.firebase.database.ValueEventListener;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    FirebaseAuth auth;
-    DatabaseReference databaseReference;
-    FirebaseUser mCurrentUser;
+    private FirebaseAuth auth;
+    private DatabaseReference databaseReference;
+    private FirebaseUser mCurrentUser;
 
-    TextView fullnama, infoemail;
+    private  TextView fullnama, infoemail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,12 +84,36 @@ public class Home extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setMessage("Apakah Anda Ingin Logout?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //if user pressed "yes", then he is allowed to exit from application
+                LogoutUser();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //if user select "No", just cancel this dialog and continue with app
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+            alert.show();
         } else {
-            super.onBackPressed();
+            alert.show();
         }
+
+
     }
 
     @Override

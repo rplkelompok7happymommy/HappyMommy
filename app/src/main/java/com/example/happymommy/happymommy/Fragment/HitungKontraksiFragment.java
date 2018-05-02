@@ -28,30 +28,28 @@ import java.util.List;
  */
 public class HitungKontraksiFragment extends Fragment {
 
-    TextView textView, twaktu ;
+    private TextView textView, twaktu ;
 
-    Button start, pause, reset ;
+    private Button start, pause, reset ;
 
-    long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L ;
+    private long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L ;
 
-    Handler handler;
+    private Handler handler;
 
-    int Seconds, Minutes, MilliSeconds ;
+    private int Seconds, Minutes, MilliSeconds ;
 
-    ListView listView ;
+    private ListView listView ;
 
-    ListView listView2 ;
+    private String[] ListElements = new String[] {  };
 
-    String[] ListElements = new String[] {  };
+    private List<String> ListElementsArrayList ;
 
-    List<String> ListElementsArrayList ;
-
-    ArrayAdapter<String> adapter ;
+    private  ArrayAdapter<String> adapter ;
 
     private Activity activity;
 
-    Calendar calendar;
-    SimpleDateFormat simpleDateFormat;
+    private Calendar calendar;
+    private SimpleDateFormat simpleDateFormat;
 
 
     public HitungKontraksiFragment() {

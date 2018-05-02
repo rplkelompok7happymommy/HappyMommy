@@ -15,10 +15,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ChangePassword extends AppCompatActivity implements View.OnClickListener{
 
-    EditText PassBaru;
-    Button btnChangePassword;
+    private EditText PassBaru;
+    private Button btnChangePassword;
 
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

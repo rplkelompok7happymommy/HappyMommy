@@ -23,7 +23,7 @@ import com.squareup.picasso.Picasso;
 
 public class Akun extends AppCompatActivity {
 
-    TextView aNama, aAlamat, aNohp;
+    private TextView aNama, aAlamat, aNohp;
 
     private DatabaseReference mUserDatabase;
     private FirebaseUser mCurrentUser;

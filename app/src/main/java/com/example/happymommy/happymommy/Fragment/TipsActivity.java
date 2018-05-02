@@ -20,9 +20,9 @@ import com.squareup.picasso.Picasso;
 
 public class TipsActivity extends AppCompatActivity {
 
-    TextView aJudul,aIsi ;
+    private TextView aJudul,aIsi ;
 
-    ImageView imageView;
+    private ImageView imageView;
 
     private DatabaseReference databaseReference;
 

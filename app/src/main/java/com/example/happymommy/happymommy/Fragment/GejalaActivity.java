@@ -18,8 +18,8 @@ import com.squareup.picasso.Picasso;
 
 public class GejalaActivity extends AppCompatActivity {
 
-    TextView aJudul,aIsi ;
-    ImageView imageView;
+    private TextView aJudul,aIsi ;
+    private ImageView imageView;
 
     private DatabaseReference mUserDatabase;
 

@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.happymommy.happymommy.MainActivity;
 import com.example.happymommy.happymommy.Model.Bulan;
 import com.example.happymommy.happymommy.R;
 import com.google.firebase.database.DataSnapshot;
@@ -17,9 +19,9 @@ import com.squareup.picasso.Picasso;
 
 public class MakananActivity extends AppCompatActivity {
 
-    TextView aJudul,aIsi ;
+    private TextView aJudul,aIsi ;
 
-    ImageView imageView;
+    private ImageView imageView;
 
     private DatabaseReference mUserDatabase;
 

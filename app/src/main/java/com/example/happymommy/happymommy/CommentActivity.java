@@ -41,26 +41,26 @@ import java.util.Calendar;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener{
 
-    DatabaseReference mDatabase, databaseUser, databaseComments;
-    Query komenDatabase;
-    TextView mJudul;
-    EditText mComment;
-    ImageView mSubmit;
+    private DatabaseReference mDatabase, databaseUser, databaseComments;
+    private Query komenDatabase;
+    private TextView mJudul;
+    private EditText mComment;
+    private ImageView mSubmit;
 
-    String idRumah = "";
-    String idDeskripsi = "";
+    private String idRumah = "";
+    private String idDeskripsi = "";
 
-    FirebaseUser mCurrentUser;
-    FirebaseAuth mAuth;
+    private FirebaseUser mCurrentUser;
+    private FirebaseAuth mAuth;
 
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
 
-    FirebaseRecyclerAdapter<CommentModel,AdapterShowComment> adapter;
+    private FirebaseRecyclerAdapter<CommentModel,AdapterShowComment> adapter;
 
-    Calendar calendar;
+    private Calendar calendar;
 
-    SimpleDateFormat simpleDateFormat;
+    private SimpleDateFormat simpleDateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

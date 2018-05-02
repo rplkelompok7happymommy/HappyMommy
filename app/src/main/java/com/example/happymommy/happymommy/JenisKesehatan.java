@@ -13,7 +13,7 @@ import com.example.happymommy.happymommy.Fragment.TipsActivity;
 
 public class JenisKesehatan extends AppCompatActivity {
 
-    Button btnTips,btnMakanan,btnKondisi,btnGejala;
+    private Button btnTips,btnMakanan,btnKondisi,btnGejala;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

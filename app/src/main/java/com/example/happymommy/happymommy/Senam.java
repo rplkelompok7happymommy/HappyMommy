@@ -1,6 +1,7 @@
 package com.example.happymommy.happymommy;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -36,10 +37,10 @@ import com.google.android.youtube.player.YouTubePlayer.Provider;
 
 public class Senam extends AppCompatActivity {
 
-    SimpleExoPlayer exoPlayer;
-    SimpleExoPlayerView exoPlayerView;
+    private SimpleExoPlayer exoPlayer;
+    private SimpleExoPlayerView exoPlayerView;
 
-    String videoURL = "https://ia601500.us.archive.org/29/items/Vid1HappyMommy/Hasil%20Compress3.mp4";
+    private String videoURL = "https://ia601500.us.archive.org/29/items/Vid1HappyMommy/Hasil%20Compress3.mp4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +49,28 @@ public class Senam extends AppCompatActivity {
 
         try {
 
-        exoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exo_player_view);
-        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-        TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
-        exoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
+            exoPlayerView = (SimpleExoPlayerView) findViewById(R.id.exo_player_view);
+            BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+            TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
+            exoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
 
-        Uri videoURI = Uri.parse(videoURL);
+            Uri videoURI = Uri.parse(videoURL);
 
-        DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory("video_senam");
-        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-        MediaSource mediaSource = new ExtractorMediaSource(videoURI, dataSourceFactory, extractorsFactory, null, null);
+            DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory("video_senam");
+            ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+            MediaSource mediaSource = new ExtractorMediaSource(videoURI, dataSourceFactory, extractorsFactory, null, null);
 
-        exoPlayerView.setPlayer(exoPlayer);
-        exoPlayer.prepare(mediaSource);
+            exoPlayerView.setPlayer(exoPlayer);
+            exoPlayer.prepare(mediaSource);
 
-        }catch (Exception e){
-            Log.e("Senam" ,"exoplayer error" +e.toString() );
+        } catch (Exception e) {
+            Log.e("Senam", "exoplayer error" + e.toString());
         }
+    }
+
+    public void onBackPressed() {
+        exoPlayer.stop();
+        startActivity(new Intent(Senam.this, Home.class));
 
     }
 }

@@ -24,13 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    EditText mUser, mPass;
-    Button btnLogin;
-    TextView tvSignup, tvForgot;
+    private EditText mUser, mPass;
+    private Button btnLogin;
+    private TextView tvSignup, tvForgot;
 
     private FirebaseAuth auth;
 
-    ProgressBar progressBar;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

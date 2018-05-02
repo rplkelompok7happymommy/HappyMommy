@@ -19,15 +19,15 @@ import com.squareup.picasso.Picasso;
 
 public class InfoRumahSakit extends AppCompatActivity {
 
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
-    RecyclerView recycler_hospital;
-    RecyclerView.LayoutManager layoutManager;
+    private RecyclerView recycler_hospital;
+    private RecyclerView.LayoutManager layoutManager;
 
-    FirebaseRecyclerAdapter<RumahSakit,AdapterRumahsakit> adapter;
+    private FirebaseRecyclerAdapter<RumahSakit,AdapterRumahsakit> adapter;
 
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -28,13 +28,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Registrasi extends AppCompatActivity implements View.OnClickListener{
 
-    EditText mUser, mPass, mAlamat, mNohp;
-    Button btnRegis;
+    private EditText mUser, mPass, mAlamat, mNohp;
+    private Button btnRegis;
 
-    EditText Rnama, Ralamat, Rnohp;
+    private EditText Rnama, Ralamat, Rnohp;
     private FirebaseAuth auth;
 
-    ProgressBar progressBar;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

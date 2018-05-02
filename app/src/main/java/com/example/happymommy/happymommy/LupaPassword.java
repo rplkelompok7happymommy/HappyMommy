@@ -14,9 +14,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LupaPassword extends AppCompatActivity implements View.OnClickListener {
 
-    EditText LupaPass;
-    Button btnLupa;
-    FirebaseAuth auth;
+    private EditText LupaPass;
+    private Button btnLupa;
+    private  FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

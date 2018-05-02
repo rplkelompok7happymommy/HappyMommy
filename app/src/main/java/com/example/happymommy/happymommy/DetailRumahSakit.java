@@ -27,17 +27,17 @@ import org.w3c.dom.Comment;
 
 public class DetailRumahSakit extends AppCompatActivity {
 
-    TextView mAddress, mHours, mPhone, mJudul, mDummy;
-    ImageView imageView;
+    private TextView mAddress, mHours, mPhone, mJudul, mDummy;
+    private ImageView imageView;
 
-    EditText mComment;
+    private EditText mComment;
 
-    String id = "";
+    private String id = "";
 
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
 
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

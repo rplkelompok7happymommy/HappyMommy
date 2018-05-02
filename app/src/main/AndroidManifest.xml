@@ -19,14 +19,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Login"
-            android:label="HAPPY MOMMY">
+            android:name=".SplashScreen"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".Login"
+            android:label="HAPPY MOMMY"/>
         <activity
             android:name=".Registrasi"
             android:label="Registrasi" />
@@ -39,13 +42,15 @@
         <activity
             android:name=".Akun"
             android:label="@string/title_activity_akun"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".Home"/>
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LupaPassword" />
-        <activity android:name=".ChangePassword"
-            android:parentActivityName=".Home"/>
-        <activity android:name=".OpsiKesehatan"
-            android:parentActivityName=".Home"/>
+        <activity
+            android:name=".ChangePassword"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".OpsiKesehatan"
+            android:parentActivityName=".Home" />
         <activity android:name=".JenisKesehatan" />
         <activity android:name=".Fragment.TipsActivity" />
         <activity android:name=".Fragment.MakananActivity" />
@@ -56,10 +61,11 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".InfoRumahSakit"
-            android:parentActivityName=".Home"/>
-        <activity android:name=".DetailRumahSakit"/>
-        <activity android:name=".CommentActivity"/>
+        <activity
+            android:name=".InfoRumahSakit"
+            android:parentActivityName=".Home" />
+        <activity android:name=".DetailRumahSakit" />
+        <activity android:name=".CommentActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -78,10 +84,13 @@
 
         <uses-library android:name="com.google.android.maps" />
 
-        <activity android:name=".MenuKontraksi"
-            android:parentActivityName=".Home"/>
-        <activity android:name=".AboutUs"
-            android:parentActivityName=".Home"></activity>
+        <activity
+            android:name=".MenuKontraksi"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".AboutUs"
+            android:parentActivityName=".Home" />
+
     </application>
 
 </manifest>
