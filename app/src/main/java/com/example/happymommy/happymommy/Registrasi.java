@@ -117,7 +117,7 @@ public class Registrasi extends AppCompatActivity implements View.OnClickListene
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (task.isSuccessful()){
-                        progressBar.setVisibility(View.GONE);
+
 
                         auth = FirebaseAuth.getInstance();
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -139,6 +139,8 @@ public class Registrasi extends AppCompatActivity implements View.OnClickListene
 
                             }
                         });
+
+                        progressBar.setVisibility(View.GONE);
 
                     } else {
                         if (task.getException() instanceof FirebaseAuthUserCollisionException) {

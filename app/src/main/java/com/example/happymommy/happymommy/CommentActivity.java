@@ -111,6 +111,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
                     final String list_id = getRef(position).getKey();
                     final String id_comment = model.getIdcomment();
+                    final String rule = "admin";
 
                     databaseComments.child(list_id).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -126,7 +127,13 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                                         notifyItemRemoved(viewHolder.getAdapterPosition());
                                         notifyDataSetChanged();
                                     }else {
+                                        if (mAuth.getCurrentUser().getEmail().equals("happymommyrpl@gmail.com")){
+                                            databaseComments.child(list_id).removeValue();
+                                            notifyItemRemoved(viewHolder.getAdapterPosition());
+                                            notifyDataSetChanged();
+                                        }else {
 
+                                        }
                                     }
 
                                 }
@@ -191,7 +198,13 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                                         notifyItemRemoved(viewHolder.getAdapterPosition());
                                         notifyDataSetChanged();
                                     }else {
+                                        if (mAuth.getCurrentUser().getEmail().equals("happymommyrpl@gmail.com")){
+                                            databaseComments.child(list_id).removeValue();
+                                            notifyItemRemoved(viewHolder.getAdapterPosition());
+                                            notifyDataSetChanged();
+                                        }else {
 
+                                        }
                                     }
 
                                 }

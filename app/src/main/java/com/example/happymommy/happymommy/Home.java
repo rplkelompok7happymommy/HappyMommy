@@ -54,7 +54,7 @@ public class Home extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         auth = FirebaseAuth.getInstance();
-        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        mCurrentUser = auth.getCurrentUser();
 
         String current_uid = mCurrentUser.getUid();
 

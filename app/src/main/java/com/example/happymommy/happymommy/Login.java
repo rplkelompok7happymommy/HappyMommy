@@ -71,7 +71,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void loginUser() {
-        String email = mUser.getText().toString().trim();
+        final String email = mUser.getText().toString().trim();
         String password = mPass.getText().toString().trim();
 
         if (email.isEmpty()) {
@@ -105,16 +105,34 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 progressBar.setVisibility(View.GONE);
-                if (!task.isSuccessful()){
+                if (task.isSuccessful()){
 
-                    Toast.makeText(Login.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
+                    if (email.equals("happymommyrpl@gmail.com")){
+                        startActivity(new Intent(Login.this, HalamanAdmin.class));
+                        finish();
+                    }else {
+                        startActivity(new Intent(Login.this, Home.class));
+                        finish();
+                    }
+
 
                 }
                 else {
 
-                    startActivity(new Intent(Login.this, Home.class));
+                    Toast.makeText(Login.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
+
+
                 }
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+        System.exit(0);
+
+    }
+
 }

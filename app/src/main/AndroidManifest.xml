@@ -27,9 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Login"
-            android:label="HAPPY MOMMY"/>
+        <activity
+            android:name=".Login"
+            android:label="HAPPY MOMMY" />
         <activity
             android:name=".Registrasi"
             android:label="Registrasi" />
@@ -44,8 +44,9 @@
             android:label="@string/title_activity_akun"
             android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LupaPassword"
-            android:parentActivityName=".Login"/>
+        <activity
+            android:name=".LupaPassword"
+            android:parentActivityName=".Login" />
         <activity
             android:name=".ChangePassword"
             android:parentActivityName=".Home" />
@@ -60,9 +61,12 @@
         <activity
             android:name=".Senam"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EditProfile"
-            android:parentActivityName=".Akun"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_video_streaming"
+            android:theme="@style/FullscreenTheme"/>
+        <activity
+            android:name=".EditProfile"
+            android:parentActivityName=".Akun" />
         <activity
             android:name=".InfoRumahSakit"
             android:parentActivityName=".Home" />
@@ -92,7 +96,7 @@
         <activity
             android:name=".AboutUs"
             android:parentActivityName=".Home" />
-
+        <activity android:name=".HalamanAdmin"></activity>
     </application>
 
 </manifest>
