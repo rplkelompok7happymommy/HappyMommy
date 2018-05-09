@@ -50,9 +50,11 @@ public class DetailRumahSakit extends AppCompatActivity {
 
         mComment = findViewById(R.id.input_comment);
 
+        //pemisalan agar memastikan intent berhasil di get
         if (getIntent() != null) {
             id = getIntent().getStringExtra("IdRumahSakit");
         }
+        //jika tidak kosong
         if (!id.isEmpty()) {
 
             mDummy.setText(id);
@@ -61,16 +63,19 @@ public class DetailRumahSakit extends AppCompatActivity {
 
     }
 
-
+    //mehod untuk menampilkan detail rumah sakit berdasarkan item yang di klik di InfoRumahSakit
     private void getDetail(String id) {
+        //Menampilkan berdasarkan id (yang di get intent)
         databaseReference.child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                //Buat Variable baru dari model rumahsakit
                 RumahSakit detail = dataSnapshot.getValue(RumahSakit.class);
 
+                //get gambar
                 Picasso.with(getBaseContext()).load(detail.getImgLokasi()).into(imageView);
 
+                //pasang
                 mJudul.setText(detail.getDeskripsi());
                 mAddress.setText(detail.getAddress());
                 mHours.setText(detail.getHours());
@@ -85,6 +90,7 @@ public class DetailRumahSakit extends AppCompatActivity {
         });
     }
 
+    //method ketika button comment di klik
     public void btnComment(View view) {
         String A = mJudul.getText().toString();
         String B = mDummy.getText().toString();
@@ -94,6 +100,7 @@ public class DetailRumahSakit extends AppCompatActivity {
         startActivity(komentar);
     }
 
+    //method ketika utton maps di klik
     public void btnMaps(View view) {
         String A = mJudul.getText().toString();
         Intent peta = new Intent(DetailRumahSakit.this, MapsActivity.class);

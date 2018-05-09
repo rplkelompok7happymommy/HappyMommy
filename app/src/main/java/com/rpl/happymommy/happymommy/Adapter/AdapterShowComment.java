@@ -11,7 +11,7 @@ import com.rpl.happymommy.happymommy.R;
 /**
  * Created by M. Satria Wibawa on 29/04/2018.
  */
-
+    //Adapter untuk RecyclerView Rumah Sakit
 public class AdapterShowComment extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView mUser;
@@ -19,8 +19,8 @@ public class AdapterShowComment extends RecyclerView.ViewHolder implements View.
     public ImageView ava;
     public TextView mWaktu;
 
+    //ItemClicListener (interface)
     private ItemClickListener itemClickListener;
-
 
     public AdapterShowComment(View itemView) {
         super(itemView);
@@ -34,10 +34,12 @@ public class AdapterShowComment extends RecyclerView.ViewHolder implements View.
 
     }
 
+    //Pasang interface intemClickListener
     public void setItemClickListener(ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
 
+    //Pasang Onclick agar dapat di klik
     @Override
     public void onClick(View view) {
         itemClickListener.onClick(view, getAdapterPosition(),false);

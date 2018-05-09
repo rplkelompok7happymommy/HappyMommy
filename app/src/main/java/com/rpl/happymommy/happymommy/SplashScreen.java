@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class SplashScreen extends AppCompatActivity {
+    //lama waktu splashcreen
     private final int SPLASH_DISPLAY_LENGTH = 2500;
 
     @Override
@@ -13,6 +14,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        //bikin handler baru setelah waktu ditentukan akan melaksanakan intent
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -45,6 +45,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         auth = FirebaseAuth.getInstance();
 
+        //jika auth tidak null langsung ke home
         if (auth.getCurrentUser()!=null){
             startActivity(new Intent(Login.this, Home.class));
         }
@@ -52,6 +53,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    //onClick berdasarkan id
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btnLogin){
@@ -69,24 +71,25 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         final String email = mUser.getText().toString().trim();
         String password = mPass.getText().toString().trim();
 
+        //exception handler bila kosong
         if (email.isEmpty()) {
             mUser.setError("Mohon Isi Email");
             mUser.requestFocus();
             return;
         }
-
+        //exception handler struktur email
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             mUser.setError("Struktur Email Salah");
             mUser.requestFocus();
             return;
         }
-
+        //exception handler bila kosong
         if(password.isEmpty()) {
             mPass.setError("Mohon Isi Password");
             mPass.requestFocus();
             return;
         }
-
+        //exception handler panjang password
         if(password.length()<6){
            mPass.setError("Password harus lebih dari 6 karakter");
            mPass.requestFocus();
@@ -95,17 +98,21 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         progressBar.setVisibility(View.VISIBLE);
 
+        //code login
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-
+                    //jika sukses
                 if (task.isSuccessful()){
                     progressBar.setVisibility(View.GONE);
+                    //jika yang login admin
                     if (email.equals("happymommyrpl@gmail.com")){
                         startActivity(new Intent(Login.this, HalamanAdmin.class));
                         finish();
+
                     }else {
+                        //jika user biasa
                         progressBar.setVisibility(View.GONE);
                         startActivity(new Intent(Login.this, Home.class));
                         finish();
@@ -114,6 +121,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                 }
                 else {
+                    //jika gagal
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(Login.this, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
 
@@ -123,6 +131,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
+    //ketika klik back maka akan dibersihkan dan keluat aplikasi
     @Override
     public void onBackPressed() {
         super.onBackPressed();

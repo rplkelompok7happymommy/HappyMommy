@@ -29,27 +29,33 @@ public class Akun extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //tomobl back di actionbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         aNama = findViewById(R.id.aNama);
         aAlamat = findViewById(R.id.aAlamat);
         aNohp = findViewById(R.id.aNohp);
 
-
+        //Untuk ambil CurrentUser
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+        //Untuk ambil UID dari Current User
         String current_uid = mCurrentUser.getUid();
 
+        //Menentukan Letak Database
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("User").child(current_uid);
 
+        //Untuk Merubah Data
         mUserDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                //Memangil data nama,alamat,nohp (database), kemudian di rubah ke string
                 String nama = dataSnapshot.child("nama").getValue().toString();
                 String alamat = dataSnapshot.child("alamat").getValue().toString();
                 String nohp = dataSnapshot.child("nohp").getValue().toString();
 
+                //kemudian dipasang
                 aNama.setText(nama);
                 aAlamat.setText(alamat);
                 aNohp.setText(nohp);

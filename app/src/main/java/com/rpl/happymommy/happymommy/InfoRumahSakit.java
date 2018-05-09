@@ -36,9 +36,11 @@ public class InfoRumahSakit extends AppCompatActivity {
         getSupportActionBar().setTitle("Informasi Rumah Sakit");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Tentukan lokasi Database
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("InfoRumahsakit");
 
+        //Defined recyclerView
         recycler_hospital = findViewById(R.id.recycler_hospital);
         recycler_hospital.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager (this);
@@ -50,18 +52,25 @@ public class InfoRumahSakit extends AppCompatActivity {
         
     }
 
+    //method ambil data database
     private void loadMenu() {
 
+        //code FirebaseRecyclerAdapter <Model,Adapter> + layout customnya
         adapter = new FirebaseRecyclerAdapter<RumahSakit, AdapterRumahsakit>(RumahSakit.class, R.layout.custom_rumahsakit, AdapterRumahsakit.class, databaseReference) {
+            //isi data di viewholder
             @Override
             protected void populateViewHolder(AdapterRumahsakit viewHolder, RumahSakit model, int position) {
+                //pasang txtHospital ke dari data getDeskripsi model RumahSakit
                 viewHolder.txtHospital.setText(model.getDeskripsi());
+                //get gambar
                 Picasso.with(getBaseContext()).load(model.getImgLokasi()).into(viewHolder.imageView);
                 final RumahSakit clickItem = model;
 
+                //buat onClick pake interface ItemClickListener
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
+                        //intent
                         Intent Detail = new Intent(InfoRumahSakit.this, DetailRumahSakit.class);
                         Detail.putExtra("IdRumahSakit", adapter.getRef(position).getKey());
                         startActivity(Detail);
@@ -71,6 +80,7 @@ public class InfoRumahSakit extends AppCompatActivity {
             }
         };
 
+        //pasang adapter
         recycler_hospital.setAdapter(adapter);
     }
 }

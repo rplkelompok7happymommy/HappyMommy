@@ -33,9 +33,12 @@ import com.google.android.exoplayer2.util.Util;
 
 public class Senam extends AppCompatActivity {
 
+    //Delay animasi
     private static final int UI_ANIMATION_DELAY = 300;
+    //buat handler baru
     private final Handler mHideHandler = new Handler();
     private View mContentView;
+    //buat runnable (untuk tampilan)
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -64,7 +67,7 @@ public class Senam extends AppCompatActivity {
 
         mContentView = findViewById(R.id.fullscreen_content);
         mProgressBar = findViewById(R.id.progressBar);
-        //initialize Player
+        //method initialize Player
         initializePlayer();
     }
 
@@ -74,7 +77,7 @@ public class Senam extends AppCompatActivity {
         delayedHide(100);
     }
 
-
+    //method hide actionbar
     private void hide() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -83,12 +86,13 @@ public class Senam extends AppCompatActivity {
         mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
     }
 
-
+    //method hide delay
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
+    //buat media source
     private MediaSource createMediaSource(String videoUrl) {
 
         String UserAgent = Util.getUserAgent(this, getString(R.string.app_name));
@@ -101,13 +105,14 @@ public class Senam extends AppCompatActivity {
         return contentMediaSource;
     }
 
-
+    //buat varible baru dari SimpleExoPlayer
     SimpleExoPlayer player;
 
     private void initializePlayer() {
 
         SimpleExoPlayerView exoPlayerView = findViewById(R.id.exoPlayerView);
 
+        //Set Buffer dari VideoPlayerConfig
         LoadControl loadControl = new DefaultLoadControl(
                 new DefaultAllocator(true, 16),
                 VideoPlayerConfig.MIN_BUFFER_DURATION,
@@ -115,16 +120,19 @@ public class Senam extends AppCompatActivity {
                 VideoPlayerConfig.MIN_PLAYBACK_START_BUFFER,
                 VideoPlayerConfig.MIN_PLAYBACK_RESUME_BUFFER);
 
-
+        //ExoPlayerFactory default
         player = ExoPlayerFactory.newSimpleInstance(
                 new DefaultRenderersFactory(this),
                 new DefaultTrackSelector(),
                 loadControl);
 
+        //pasang player
         exoPlayerView.setPlayer(player);
 
+        //Pasang video berdasarkan Video URL dari VideoPlayerConfig
         player.prepare(createMediaSource(VideoPlayerConfig.VIDEO_URL));
 
+        //buat listener
         player.addListener(new ExoPlayer.EventListener() {
             @Override
             public void onTimelineChanged(Timeline timeline, Object manifest) {
@@ -138,13 +146,16 @@ public class Senam extends AppCompatActivity {
             public void onLoadingChanged(boolean isLoading) {
             }
 
+            //Ketika ada perubahan
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 switch (playbackState) {
+                    //ketika buffer
                     case ExoPlayer.STATE_BUFFERING:
                         showProgress();
 
                         break;
+                    //ketika ready
                     case ExoPlayer.STATE_READY:
                         hideProgress();
 
@@ -175,6 +186,7 @@ public class Senam extends AppCompatActivity {
         mProgressBar.setVisibility(View.GONE);
     }
 
+    //untuk pendukung versi kecil
     @Override
     protected void onResume() {
         player.setPlayWhenReady(true);

@@ -11,12 +11,13 @@ import com.rpl.happymommy.happymommy.R;
 /**
  * Created by M. Satria Wibawa on 28/04/2018.
  */
-
+    //Adapter untuk RecyclerView Rumah Sakit
 public class AdapterRumahsakit extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     public TextView txtHospital;
     public ImageView imageView;
 
+    //ItemClicListener (interface)
     private ItemClickListener itemClickListener;
 
     public AdapterRumahsakit(View itemView) {
@@ -29,10 +30,12 @@ public class AdapterRumahsakit extends RecyclerView.ViewHolder implements View.O
 
     }
 
+    //Pasang interface intemClickListener
     public void setItemClickListener(ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
 
+    //Pasang Onclick agar dapat di klik
     @Override
     public void onClick(View view) {
         itemClickListener.onClick(view, getAdapterPosition(),false);

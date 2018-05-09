@@ -20,7 +20,7 @@ public class MakananActivity extends AppCompatActivity {
     private TextView aJudul,aIsi ;
 
     private ImageView imageView;
-
+    //Get Referensi Database
     private DatabaseReference mUserDatabase;
 
     @Override
@@ -32,26 +32,28 @@ public class MakananActivity extends AppCompatActivity {
         aJudul = findViewById(R.id.judul);
         aIsi = findViewById(R.id.isi);
         imageView = findViewById(R.id.imageView3);
-
+        //Get Intent
         Intent intent = getIntent();
         String id = intent.getStringExtra("IdBulan");
-
+        //Menentukan reference atau letak database
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("InfoKesehatan").child(id);
-
+        //Untuk Merubah Data/ Menambah data
         mUserDatabase.addValueEventListener(new ValueEventListener() {
+
+            //ketika data dirubah
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                //buat variable baru untuk class model bulan
                 Bulan detail = dataSnapshot.getValue(Bulan.class);
-
+                //untuk get gambar
                 Picasso.with(getBaseContext()).load(detail.getImgMakanan()).into(imageView);
-
+                //untuk ambil data perkembangan (database)
                 String makanan = dataSnapshot.child("makanan").getValue().toString();
                 aJudul.setText("Makanan");
                 aIsi.setText(makanan);
 
             }
-
+            //ketika batal
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

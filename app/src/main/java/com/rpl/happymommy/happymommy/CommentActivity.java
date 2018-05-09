@@ -30,25 +30,26 @@ import java.util.Calendar;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private DatabaseReference mDatabase, databaseUser, databaseComments;
-    private Query komenDatabase;
+    private DatabaseReference databaseUser, databaseComments;
+
     private TextView mJudul;
     private EditText mComment;
-    private ImageView mSubmit;
 
     private String idRumah = "";
     private String idDeskripsi = "";
 
-    private FirebaseUser mCurrentUser;
     private FirebaseAuth mAuth;
 
+    //defined recyclerview
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
 
+    //get FirebaseRecyelerAdapter dengan model CommentModel dan adapter AdapterShowComment
     private FirebaseRecyclerAdapter<CommentModel,AdapterShowComment> adapter;
 
+    //calender
     private Calendar calendar;
-
+    //format calender
     private SimpleDateFormat simpleDateFormat;
 
     @Override
@@ -59,7 +60,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         mJudul = findViewById(R.id.judul_desktripsi);
         mComment = findViewById(R.id.input_comment);
 
-
         findViewById(R.id.btnSubmit).setOnClickListener(this);
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_comment);
@@ -68,17 +68,21 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
         mAuth = FirebaseAuth.getInstance();
 
+        //get intent
         idRumah = getIntent().getStringExtra("IdKonten");
 
-        komenDatabase = FirebaseDatabase.getInstance().getReference().child("Comment");
+        //Lokasi database
         databaseUser = FirebaseDatabase.getInstance().getReference().child("User");
         databaseComments = FirebaseDatabase.getInstance().getReference("InfoRumahsakit").child(idRumah).child("Comment");
 
+        //code nampilin calender
         calendar = Calendar.getInstance();
+        //code format data yang akan di tampilkan
         simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
         long date = System.currentTimeMillis();
         final String CurrentDate = simpleDateFormat.format(date);
 
+        //get intent pake pemisalan
         if (getIntent() != null) {
             idRumah = getIntent().getStringExtra("IdKonten");
             idDeskripsi = getIntent().getStringExtra("IdDeskripsi");
@@ -87,34 +91,43 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
             mJudul.setText(idDeskripsi);
 
+            //bikin Query dengan isinya database comment (Buat baca isi database)
             Query query = databaseComments;
 
+            //code FirebaseAdapter
             adapter = new FirebaseRecyclerAdapter<CommentModel, AdapterShowComment>(CommentModel.class, R.layout.custom_comment, AdapterShowComment.class, query) {
 
+                //untuk edit di viewholdernya
                 @Override
                 protected void populateViewHolder(final AdapterShowComment viewHolder, CommentModel model, int position) {
+                    //pasang TextView dengan data get dari CommentModel
                     viewHolder.mUser.setText(model.getUsername());
                     viewHolder.mIsi.setText(model.getIsi());
                     viewHolder.mWaktu.setText(CurrentDate);
 
+                    //Get posisi dan Key
                     final String list_id = getRef(position).getKey();
+                    //Get Id comment
                     final String id_comment = model.getIdcomment();
                     final String rule = "admin";
 
+                    //lakukan perubahan berdasarkan key di databasse
                     databaseComments.child(list_id).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
-
+                            //pasang onClick pakai interface ItemClickListener
                             viewHolder.setItemClickListener(new ItemClickListener() {
                                 @Override
                                 public void onClick(View view, int position, boolean isLongClick) {
 
+                                    //Pemisalan agar hanya user yang dapat delete commnet pribadi user
                                     if (mAuth.getCurrentUser().getUid().equals(id_comment)){
                                         databaseComments.child(list_id).removeValue();
                                         notifyItemRemoved(viewHolder.getAdapterPosition());
                                         notifyDataSetChanged();
                                     }else {
+                                        //Pemisalan agar admin dapat delete semua comment (nentuin admin berdasarkan email)
                                         if (mAuth.getCurrentUser().getEmail().equals("happymommyrpl@gmail.com")){
                                             databaseComments.child(list_id).removeValue();
                                             notifyItemRemoved(viewHolder.getAdapterPosition());
@@ -136,7 +149,9 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                 }
             };
 
+            //kasih tau perubahan ke adapater
             adapter.notifyDataSetChanged();
+            //pasang adapter
             recyclerView.setAdapter(adapter);
 
 
@@ -146,6 +161,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void ShowList (){
+        //Sama seperti di atas
         calendar = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("dd-MM-yy");
         long date = System.currentTimeMillis();
@@ -212,24 +228,34 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    //ketika di klik jalankan method Submit Comment(method tambah comment)
     @Override
     public void onClick(View view) {
         SubmitComments();
     }
 
     private void SubmitComments() {
+        //add data untuk satu value
         databaseUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            //ketika ada perubahan
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                //Model InfoUser bikin variable untuk ambil UID user
                 InfoUser user = dataSnapshot.child(mAuth.getCurrentUser().getUid()).getValue(InfoUser.class);
                 String review = mComment.getText().toString().trim();
                 String hospital = mJudul.getText().toString();
 
+                //jika field tidak kosong
                 if (!TextUtils.isEmpty(review)){
+                    //Buat Key baru
                     String idComment = databaseComments.push().getKey();
+                    //ambil UID dari User yang sedang login
                     String id = mAuth.getCurrentUser().getUid();
+                    //timestamp (cuman tidak dipakai)
                     long timestamp = System.currentTimeMillis();
+                    //bikin data di database berdasarkan model CommentModel
                     CommentModel track = new CommentModel(id, user.getNama(), review, hospital , timestamp*(-1));
+                    //tempatkan di key yang telah di push
                     databaseComments.child(idComment).setValue(track);
                     Toast.makeText(CommentActivity.this, "Comment Success", Toast.LENGTH_SHORT).show();
                     mComment.setText("");

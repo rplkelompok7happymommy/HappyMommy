@@ -5,7 +5,7 @@ import android.view.View;
 /**
  * Created by M. Satria Wibawa on 28/04/2018.
  */
-
+    //Interface dengan onClick
 public interface ItemClickListener {
     void onClick(View view, int position, boolean isLongClick);
 }

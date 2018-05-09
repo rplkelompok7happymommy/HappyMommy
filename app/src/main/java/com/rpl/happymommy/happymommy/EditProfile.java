@@ -36,26 +36,29 @@ public class EditProfile extends AppCompatActivity {
         aAlamat = findViewById(R.id.aAlamat);
         aNohp = findViewById(R.id.aNohp);
 
+        //intance dari auth firebase
         auth = FirebaseAuth.getInstance();
 
-
-        final FirebaseUser user = auth.getCurrentUser();
-
-
+        //get current user
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+        //get UID dari current User
         String current_uid = mCurrentUser.getUid();
 
+        //Menentukan lokasi databse
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("User").child(current_uid);
 
+        //untuk merubah data/menambah
         mUserDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                //set string berdasarkan data database
                 String nama = dataSnapshot.child("nama").getValue().toString();
                 String alamat = dataSnapshot.child("alamat").getValue().toString();
                 String nohp = dataSnapshot.child("nohp").getValue().toString();
 
+                //pasang
                 aNama.setText(nama);
                 aAlamat.setText(alamat);
                 aNohp.setText(nohp);
@@ -69,6 +72,7 @@ public class EditProfile extends AppCompatActivity {
         });
     }
 
+    //ketika klik button save, jalankan method save
     public void Save(View view) {
         save();
     }
@@ -78,35 +82,40 @@ public class EditProfile extends AppCompatActivity {
         String alamat = aAlamat.getText().toString().trim();
         String nohp = aNohp.getText().toString().trim();
 
+        //exception handler bila field kosong
         if (nama.isEmpty()) {
             aNama.setError("Mohon Isi Nama");
             aNama.requestFocus();
             return;
         }
 
-
+        //exception handler bila field kosong
         if(alamat.isEmpty()) {
             aAlamat.setError("Mohon Isi Alamat");
             aAlamat.requestFocus();
             return;
         }
 
-
+        //exception handler bila field kosong
         if (nohp.isEmpty()) {
             aNohp.setError("Mohon Isi No HP");
             aNohp.requestFocus();
             return;
         }
 
+        //menentukan lokasi database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
 
+        //get current user
         final FirebaseUser user = auth.getCurrentUser();
 
+        //utuk tambah data
         table_user.addValueEventListener(new ValueEventListener() {
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        //tambah data ke database berdasarkan model InfoUser
                         InfoUser infoUser = new InfoUser(aNama.getText().toString(), aAlamat.getText().toString(), aNohp.getText().toString());
                         table_user.child(user.getUid()).setValue(infoUser);
 

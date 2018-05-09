@@ -40,15 +40,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
+        //get intent
         Intent intent = getIntent();
         String id = intent.getStringExtra("Peta");
 
+        //jika id sama dengan
         if (id.equals("Limijati Women And Children")){
             mMap = googleMap;
 
             // Add a marker in Sydney and move the camera
+            //kordinat
             LatLng bandung = new LatLng(-6.9060568,107.6114247);
+            //tambah title untuk di market
             mMap.addMarker(new MarkerOptions().position(bandung).title("Limijati Women And Children Hospital"));
+            //zoom langsung
             float zoomLevel = 16.0f; //This goes up to 21
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung, zoomLevel));
         }

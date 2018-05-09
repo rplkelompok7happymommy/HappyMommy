@@ -13,6 +13,8 @@ import com.rpl.happymommy.happymommy.Fragment.InfoKontraksiFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
+    //Adapter untuk Fragment
+
     //Membuat variable int mNumOfTabs
     private int mNumOfTabs;
 

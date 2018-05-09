@@ -40,6 +40,7 @@ public class HitungKontraksiFragment extends Fragment {
 
     private ListView listView ;
 
+    //Buat Array
     private String[] ListElements = new String[] {  };
 
     private List<String> ListElementsArrayList ;
@@ -72,7 +73,7 @@ public class HitungKontraksiFragment extends Fragment {
         reset = (Button)view.findViewById(R.id.button3);
         listView = (ListView)view.findViewById(R.id.listview1);
 
-
+        //bikin handler buat itung
         handler = new Handler() ;
 
         ListElementsArrayList = new ArrayList<String>(Arrays.asList(ListElements));
@@ -84,6 +85,7 @@ public class HitungKontraksiFragment extends Fragment {
 
         listView.setAdapter(adapter);
 
+        //buat thread agar code terus berjalan
         Thread t = new Thread(){
             public void run() {
                 try {
@@ -116,6 +118,7 @@ public class HitungKontraksiFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
+                //reset chono
                 MillisecondTime = 0L ;
                 StartTime = 0L ;
                 TimeBuff = 0L ;
@@ -126,6 +129,7 @@ public class HitungKontraksiFragment extends Fragment {
 
                 textView.setText("00:00:00");
 
+                //untuk start ambil data dari runnable
                 StartTime = SystemClock.uptimeMillis();
                 handler.postDelayed(runnable, 0);
 
@@ -141,6 +145,7 @@ public class HitungKontraksiFragment extends Fragment {
 
                 TimeBuff += MillisecondTime;
 
+                //dihentikan memangil runnable
                 handler.removeCallbacks(runnable);
 
                 pause.setVisibility(View.INVISIBLE);
@@ -148,8 +153,10 @@ public class HitungKontraksiFragment extends Fragment {
 
                 reset.setEnabled(true);
 
+                //nambah data ke List
                 ListElementsArrayList.add(textView.getText().toString()+ "                         " + twaktu.getText().toString() );
 
+                //beritahu adapter ketika ada perubahan
                 adapter.notifyDataSetChanged();
 
             }
@@ -158,6 +165,7 @@ public class HitungKontraksiFragment extends Fragment {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //bersihkan list
                 ListElementsArrayList.clear();
 
                 adapter.notifyDataSetChanged();
@@ -174,6 +182,7 @@ public class HitungKontraksiFragment extends Fragment {
         activity = getActivity();
     }
 
+    //bekerja pas di pangil
     public Runnable runnable = new Runnable() {
 
         public void run() {

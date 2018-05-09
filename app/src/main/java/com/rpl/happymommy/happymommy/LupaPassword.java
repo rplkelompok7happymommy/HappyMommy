@@ -64,6 +64,7 @@ public class LupaPassword extends AppCompatActivity implements View.OnClickListe
         }
 
         progressBar.setVisibility(View.VISIBLE);
+        //code untuk cek apakah email terdaftar
         auth.fetchProvidersForEmail(email).addOnCompleteListener(new OnCompleteListener<ProviderQueryResult>() {
             @Override
             public void onComplete(@NonNull Task<ProviderQueryResult> task) {
@@ -87,6 +88,7 @@ public class LupaPassword extends AppCompatActivity implements View.OnClickListe
     private void reset(){
         final String email = LupaPass.getText().toString().trim();
 
+        //code untuk reset password yang nantinya password baru dikirim ke email
         auth.sendPasswordResetEmail(email).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -48,12 +48,14 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        // get current user
         auth = FirebaseAuth.getInstance();
         mCurrentUser = auth.getCurrentUser();
 
+        //get current user UID
         String current_uid = mCurrentUser.getUid();
 
+        //Tentukan Lokasi Database
         databaseReference = FirebaseDatabase.getInstance().getReference("User").child(current_uid);
 
         View headerView = navigationView.getHeaderView(0);
@@ -61,6 +63,7 @@ public class Home extends AppCompatActivity
         infoemail = headerView.findViewById(R.id.infoemail);
         infoemail.setText(auth.getCurrentUser().getEmail());
 
+        //untuk menampilkan nama berdasarkan user yang login
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -81,20 +84,23 @@ public class Home extends AppCompatActivity
     @Override
     public void onBackPressed() {
 
+        //menambah popup alertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
         builder.setMessage("Apakah Anda Ingin Logout?");
+        //bila klik yes
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //if user pressed "yes", then he is allowed to exit from application
+
                 LogoutUser();
             }
         });
+        //bila klik no
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //if user select "No", just cancel this dialog and continue with app
+
                 dialog.cancel();
             }
         });
@@ -144,11 +150,11 @@ public class Home extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+       //untuk ketika di swipe
         int id = item.getItemId();
 
         if (id == R.id.nav_akun) {
-            // Handle the camera action
+
             Intent intent = new Intent(Home.this, Akun.class);
             startActivity(intent);
 

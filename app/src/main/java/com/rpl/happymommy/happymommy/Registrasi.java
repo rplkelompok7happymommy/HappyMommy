@@ -73,36 +73,38 @@ public class Registrasi extends AppCompatActivity implements View.OnClickListene
         String Alamat = mAlamat.getText().toString().trim();
         String Nohp = mAlamat.getText().toString().trim();
 
+        //exection handler bila ksoong
         if (email.isEmpty()) {
             mUser.setError("Mohon Isi Email");
             mUser.requestFocus();
             return;
         }
 
+        //exection handler harus struktur email
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             mUser.setError("Struktur Email Salah");
             mUser.requestFocus();
             return;
         }
-
+        //exection handler bila ksoong
         if(password.isEmpty()) {
             mPass.setError("Mohon Isi Password");
             mPass.requestFocus();
             return;
         }
-
+        //exection handler panjang password
         if(password.length()<6){
             mPass.setError("Password harus lebih dari 6 karakter");
             mPass.requestFocus();
             return;
         }
-
+        //exection handler bila ksoong
         if (Alamat.isEmpty()) {
             mAlamat.setError("Mohon Isi Alamat");
             mAlamat.requestFocus();
             return;
         }
-
+        //exection handler bila ksoong
         if (Nohp.isEmpty()) {
             mNohp.setError("Mohon Isi Nohp");
             mNohp.requestFocus();
@@ -111,20 +113,23 @@ public class Registrasi extends AppCompatActivity implements View.OnClickListene
 
         progressBar.setVisibility(View.VISIBLE);
 
+        //code buat user dengan email dan passoword
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
+                //jika berhasi;
                     if (task.isSuccessful()){
                         auth = FirebaseAuth.getInstance();
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         final DatabaseReference table_user = database.getReference("User");
 
                         final FirebaseUser user = auth.getCurrentUser();
-
+                        //tambah data
                         table_user.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
+                                //tambah data berdasarkan model InfoUser ke database
                                 InfoUser infoUser = new InfoUser(Rnama.getText().toString(), Ralamat.getText().toString(), Rnohp.getText().toString());
                                 table_user.child(user.getUid()).setValue(infoUser);
 
@@ -140,6 +145,8 @@ public class Registrasi extends AppCompatActivity implements View.OnClickListene
                         progressBar.setVisibility(View.GONE);
 
                     } else {
+                        //jika gagal
+                        //jika emal sudah dipakai
                         if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                             Toast.makeText(getApplicationContext(), "Email Telah Digunakan", Toast.LENGTH_SHORT).show();
                         } else {
